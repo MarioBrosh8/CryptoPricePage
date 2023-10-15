@@ -1,0 +1,7 @@
+.Father {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.element {
+    padding: 0px, 1rem, 0px, 1rem;
+}
