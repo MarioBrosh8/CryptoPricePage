@@ -1,4 +1,5 @@
 const tableValues = document.getElementById("tableValues");
+Chart.defaults.color = '#FFFFF';
 
 function loadData() {
   const graphic = document.getElementById("myChart").getContext("2d");
@@ -27,11 +28,12 @@ function loadData() {
                         label: "Dolar price",
                         data: prices,
                         fill: true,
-                        backgroundColor: "#FFFFF",
-                        borderColor: "black"
+                        backgroundColor: "#F56783",
+                        borderColor: "#F56783"
                     },
                 ],
             },
+
             options: {
                 responsive: true,
                 plugins: {
@@ -40,7 +42,7 @@ function loadData() {
                     },
                     title: {
                         display: true,
-                        text: "Crypto"
+                        text: "Crypto Prices Chart"
                     }
                 },
                 scales: {
@@ -54,7 +56,7 @@ function loadData() {
       tableValues.innerHTML = "";
 
       for (const valor of response.data.data) {
-        if (parseInt(valor.priceUsd) > 0.05) {
+        if (parseInt(valor.priceUsd) > 100) {
           let tr = `<tr>
             <td>${valor.symbol}</td>
             <td>${valor.name}</td>
@@ -65,7 +67,7 @@ function loadData() {
       }
     })
     .catch(() => {
-      console.log("No Funciona");
+      console.log("It doesnt work");
     });
 }
 
